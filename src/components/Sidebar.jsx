@@ -5,7 +5,7 @@ import { MdOutlineCancel } from 'react-icons/md';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { links } from '../data/dummy';
-import { useStateContext } from '../contexts/StateContext';
+import { useStateContext } from '../contexts/ContextProvider';
 
 const Sidebar = () => {
     const { activeMenu, setActiveMenu } = useStateContext();
@@ -22,7 +22,7 @@ const Sidebar = () => {
                         <SiShopware /> <span>Shoppy</span>
                     </Link>
                     <TooltipComponent content="Menu" position="BottomCenter">
-                        <button type="button" onClick={() => {}} className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden"> 
+                        <button type="button" onClick={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)} className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden"> 
                             <MdOutlineCancel />
                         </button>
                     </TooltipComponent>
